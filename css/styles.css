@@ -10,7 +10,7 @@
    - Created custom color palette with CSS variables for easy theming
    - Implemented dark/light theme system with smooth transitions
    - Fixed responsive design issues for all screen sizes (mobile, tablet, desktop)
-   - Added custom animations (fadeInUp, bounce, rotate, slideIn)
+   - Added custom animations 
    - Improved mobile menu styling and positioning
    - Added accessibility features (focus states, reduced motion preference)
    - Created print-friendly styles
@@ -903,7 +903,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.2rem;
 }
 
-/* FIXED: Footer links styling - now vertical by default */
+/* Footer links styling*/
 .footer-links ul {
     list-style: none;
     display: flex;
@@ -1144,7 +1144,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Mobile Styles - FIXED */
+/* Mobile Styles */
 @media screen and (max-width: 768px) {
     /* Navigation fixes */
     .nav-container {
@@ -1322,7 +1322,7 @@ h1, h2, h3, h4, h5, h6 {
         gap: var(--spacing-lg);
     }
     
-    /* FIXED: Footer links on mobile - vertical and centered */
+    /* Footer links on mobile */
     .footer-links ul {
         display: flex;
         flex-direction: column;
@@ -1369,7 +1369,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Small Mobile Styles - FIXED */
+/* Small Mobile Styles */
 @media screen and (max-width: 480px) {
     .container {
         padding: 0 var(--spacing-md);
@@ -1441,7 +1441,7 @@ h1, h2, h3, h4, h5, h6 {
         width: 100%;
     }
     
-    /* FIXED: Footer links on small mobile - keep vertical */
+    /* Footer links on small mobile */
     .footer-links ul {
         flex-direction: column;
         gap: var(--spacing-xs);
