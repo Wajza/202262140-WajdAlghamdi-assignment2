@@ -53,28 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initProjectFilters();
     initFormValidation();
     initLazyLoading();
-    
-    // Add shake animation style if not exists
-    addShakeAnimation();
 });
-
-/**
- * Add shake animation to document
- */
-function addShakeAnimation() {
-    if (!document.getElementById('shake-animation')) {
-        const style = document.createElement('style');
-        style.id = 'shake-animation';
-        style.textContent = `
-            @keyframes shake {
-                0%, 100% { transform: translateX(0); }
-                10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-                20%, 40%, 60%, 80% { transform: translateX(5px); }
-            }
-        `;
-        document.head.appendChild(style);
-    }
-}
 
 /**
  * Theme Toggle Functionality
@@ -115,10 +94,10 @@ function initThemeToggle() {
         
         updateThemeIcon(!isDark);
         
-        // Add animation effect
-        themeToggle.style.transform = 'rotate(360deg)';
+        // FIXED: Use CSS class instead of inline style
+        themeToggle.classList.add('rotate');
         setTimeout(() => {
-            themeToggle.style.transform = '';
+            themeToggle.classList.remove('rotate');
         }, 300);
     });
     
@@ -408,10 +387,10 @@ function showFieldError(fieldId, message) {
         field.classList.add('error');
         errorElement.textContent = message;
         
-        // Shake animation
-        field.style.animation = 'shake 0.5s ease';
+        // FIXED: Use CSS class instead of inline style
+        field.classList.add('shake');
         setTimeout(() => {
-            field.style.animation = '';
+            field.classList.remove('shake');
         }, 500);
     }
 }
@@ -626,6 +605,7 @@ function initTypingEffect() {
 /**
  * Project Filters
  * Filters projects by category
+ * FIXED: Uses CSS classes instead of inline styles
  */
 function initProjectFilters() {
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -645,17 +625,12 @@ function initProjectFilters() {
             
             projects.forEach(project => {
                 if (filter === 'all' || project.getAttribute('data-category') === filter) {
-                    project.style.display = 'flex';
-                    setTimeout(() => {
-                        project.style.opacity = '1';
-                        project.style.transform = 'scale(1)';
-                    }, 10);
+                    // FIXED: Use CSS classes instead of inline styles
+                    project.classList.remove('hidden');
+                    project.classList.add('visible');
                 } else {
-                    project.style.opacity = '0';
-                    project.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        project.style.display = 'none';
-                    }, 300);
+                    project.classList.remove('visible');
+                    project.classList.add('hidden');
                 }
             });
         });
